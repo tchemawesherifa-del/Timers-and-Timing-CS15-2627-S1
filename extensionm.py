@@ -1,26 +1,23 @@
 import time
 import random
 
-fastest_time = 100
+best_time = None
 
-for attempt in range(5):
-    print("get ready...")
+for _ in range(5):
 
-    wait_time = random.randint(2, 5)
-    time.sleep(wait_time)
+    time.sleep(random.randrange(2,5))
 
-    print("GO!")
     start_time = time.monotonic()
-
-    input()
-
+    input('G0!')
     end_time = time.monotonic()
 
-    reaction_time = end_time - start_time
+    speed =  end_time - start_time
 
-    print("your reaction time was", reaction_time, "seconds")
+    print(speed)
+    if best_time is None:
+        best_time = speed
 
-    if reaction_time < fastest_time:
-        fastest_time = reaction_time
+    if speed > best_time:
+        best_time = speed
 
-print("your fastest reaction time was", fastest_time, "seconds")
+print('f your fastest time was {best_time}')
